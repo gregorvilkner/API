@@ -26,7 +26,7 @@ const role = "YourAuthenticatorRole";
 //Call main program function
 doMain();
 
-// Forms and sends a GraphQL request (query or mutation) and returns the response
+//Forms and sends a GraphQL request (query or mutation) and returns the response
 async function performGraphQLRequest(query, endPoint, bearerToken) {
     var opt = {
         method: 'POST',
@@ -39,9 +39,11 @@ async function performGraphQLRequest(query, endPoint, bearerToken) {
         opt.headers.Authorization = bearerToken;
     const response = await fetch(endPoint, opt);
     return await response.json();
+
+    //TODO: Handle errors!
 }
 
-// Gets a JWT Token containing the Bearer string returned from the Platform, assuming authorization is granted.
+//Gets a JWT Token containing the Bearer string returned from the Platform, assuming authorization is granted.
 async function getBearerToken() {
 
     // Step 1: Request a challenge

@@ -38,6 +38,7 @@ def perform_graphql_request(content, url=args.url, headers=None):
   r = requests.post(url, headers=headers, data={"query": content})
   r.raise_for_status()
   return r.json()
+  #TODO Handle Errors!
 
 ''' Gets a JWT Token containing the Bearer string returned from the Platform, assuming authorization is granted.
     Accepts: The JSON payload you want to send to GraphQL
@@ -70,6 +71,7 @@ def get_bearer_token (auth=args.authenticator, password=args.password, name=args
     """)
   jwt_claim = response['data']['authenticationValidation']['jwtClaim']
   return f"Bearer {jwt_claim}"
+  #TODO Handle Errors!
 
 # Main Program
 def main():
