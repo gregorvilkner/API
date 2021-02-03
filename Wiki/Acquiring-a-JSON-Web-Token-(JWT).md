@@ -24,7 +24,7 @@ Feel free to take the token to a jwt decoder, such as https://jwt.ms to inspect 
 
 Depending on the setup, this menu item may be else where. If this menu item can't be found it can be created as a URL-type menu item in the administrator section of the platform with the following Link: */api/graphql/?authorizationHeader=1*
 
-### Access and explore the SMIP GraphQL API remotely
+### Interactively explore the SMIP GraphQL API
 
 We are now ready to access and explore the GraphQL API via Developer -> GraphiQL. GraphiQL is one of the oldest and most commonly used GraphQL clients around, and the platform neatly embedds it right in the system. The page should look like shown below. The first thing we need to do is expand the headers pane shown on the very right of the image and paste the authentication JSON object with the JWT token we copied in the step above. The button to toggle the headers pane is located either in the button row on top or next to the Query Variables on the bottom of the page.
 
