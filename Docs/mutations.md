@@ -1,3 +1,5 @@
+# SMIP Mutations
+
 In GraphQL, the endpoint is always the same, but the query payload changes to indicate the response payload you wish to retrieve. Updates and Insertions are called Mutations, and are performed against the same endpoint as queries. For more information on accessing the GraphQL endpoint for your SMIP instance, see the page [SMIP GraphQL Endpoint](smip-graphql.md).
 
 **<a name="query-types">Mutating Time Series Sample Values**
