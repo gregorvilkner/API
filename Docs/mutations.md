@@ -6,7 +6,7 @@ In GraphQL, the endpoint is always the same, but the query payload changes to in
 
 In these examples, you need to know the ID of the element you are mutating. You can find IDs through [GraphQL Queries](queries.md), but it is also available in the UI by turning on the ID column in any table view:
 
-![ID Column](images/idcolumn.jpg)
+![ID Column](images/idcolumn.png)
 
 
 ## Example Mutations
