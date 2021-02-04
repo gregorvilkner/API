@@ -5,9 +5,9 @@ GraphQL objects are expressed as Javascript Object Notation (JSON) payloads, tha
 
 While there's only one pre-release version of the SMIP and SM Profiles currently, we envision that both the Profiles and the Interface will have revisions over time. To ensure existing applications remain compatible, version information will be contained in each SM Profile and in the API response.
 
-GraphQL is well-suited to representing complex Graph relationships, such as the ones stored in a SMIP instances, or in an OPC UA Server, because it allows a developer to specify exactly what objects, and what relationships they are interested in. Read below for information about queries and expected responses. CESMII has combined GraphQL with a JSON Web Token (JWT) approach for application security. The article [Acquiring a JSON Web Token](https://github.com/cesmii/API/wiki/Acquiring-a-JSON-Web-Token-(JWT)) provides more detail about the security model.
+GraphQL is well-suited to representing complex Graph relationships, such as the ones stored in a SMIP instances, or in an OPC UA Server, because it allows a developer to specify exactly what objects, and what relationships they are interested in. Read below for information about queries and expected responses. CESMII has combined GraphQL with a JSON Web Token (JWT) approach for application security. The article [Acquiring a JSON Web Token](jwt.md) provides more detail about the security model.
 
-Unlike REST, GraphQL uses a single endpoint URL for all queries. To make the interface discoverable, the specification includes a standard schema query so that there's a common way to learn about the endpoint's capabilities. See the page [SMIP GraphQL Endpoints](https://github.com/cesmii/API/wiki/SMIP-GraphQL-Endpoint) for more details.
+Unlike REST, GraphQL uses a single endpoint URL for all queries. To make the interface discoverable, the specification includes a standard schema query so that there's a common way to learn about the endpoint's capabilities. See the page [SMIP GraphQL Endpoints](smip-graphql.md) for more details.
 
 ## Definable Queries
 This section is a stub

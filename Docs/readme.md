@@ -4,21 +4,19 @@ CESMII's Smart Manufacturing Innovation Platform™ (or SMIP™, for short) is a
 Once applied by an adopting platform (such as the SMIP, or other commercial offerings) the developer interface to the object model is exposed through GraphQL. These documents describe this interface, and how to build raw payloads. Efforts to develop SDKs that provide a simplified adoption path fromspecific programming languages or environments are also discussed.
 
 ## GraphQL API
-* [Intro to GraphQL](https://github.com/cesmii/API/wiki/Intro-to-GraphQL)
-* [GraphQL applied to Smart Manufacturing](https://github.com/cesmii/API/wiki/GraphQL-applied-to-Smart-Manufacturing)
-* [SMIP GraphQL Endpoint](https://github.com/cesmii/API/wiki/SMIP-GraphQL-Endpoint)
-* [SMIP GraphQL SDKs](https://github.com/cesmii/API/wiki/SMIP-GraphQL-SDKs)
+* [Intro to GraphQL](intro.md)
+* [GraphQL applied to Smart Manufacturing](graphql-and-manufacturing)
+* [SMIP GraphQL Endpoint](smip-graphql.md)
 
 ### Security and Authentication
-* Acquiring a JSON Web Token (JWT)
-* Handling Token Expiry
+* [Acquiring a JSON Web Token (JWT)](jwt.md)
 
 ### Queries
-* [Type (SM Profile) list](https://github.com/cesmii/API/wiki/GraphQL-Queries#query-types)
-* [Equipment list](https://github.com/cesmii/API/wiki/GraphQL-Queries#query-equipment)
-* [Location list](https://github.com/cesmii/API/wiki/GraphQL-Queries#query-locations)
-* [Attribute list](https://github.com/cesmii/API/wiki/GraphQL-Queries#query-attributes)
-* [Time Series Values](https://github.com/cesmii/API/wiki/GraphQL-Queries#query-timeseries)
+* [Type (SM Profile) list](queries.md#query-types)
+* [Equipment list](queries.md#query-equipment)
+* [Location list](queries.md#query-locations)
+* [Attribute list](queries.md#query-attributes)
+* [Time Series Values](queries.md#query-timeseries)
 
 ### Mutations
-* [Inserting or updating time series samples](https://github.com/cesmii/API/wiki/Inserting-or-Updating-Time-Series-Samples)
+* [Inserting or updating time series samples](mutations.md)
