@@ -2,6 +2,13 @@
 
 In GraphQL, the endpoint is always the same, but the query payload changes to indicate the response payload you wish to retrieve. Updates and Insertions are called Mutations, and are performed against the same endpoint as queries. For more information on accessing the GraphQL endpoint for your SMIP instance, see the page [SMIP GraphQL Endpoint](smip-graphql.md).
 
+## Finding IDs
+
+In these examples, you need to know the ID of the element you are mutating. You can find IDs through [GraphQL Queries](queries.md), but it is also available in the UI by turning on the ID column in any table view:
+
+![ID Column](images/idcolumn.jpg)
+
+
 ## Example Mutations
 
 **<a name="query-types">Mutating Time Series Sample Values**
@@ -9,20 +16,57 @@ In GraphQL, the endpoint is always the same, but the query payload changes to in
 The following query payload mutates time series sample values for a given Instance Attribute Tag, with the provided time stamp. If values already exist, they will be updated (replaced). If values did not previously exist, they will be inserted:
 
 ```
-mutation UpdateData {
-  __typename
+mutation MyTimeSeriesMutation {
   replaceTimeSeriesRange(
     input: {
+      attributeOrTagId: "##"
       entries: [
-        {value: "19.00", timestamp: "2020-02-25T02:55:25+00:00", status: "0"},
-        {value: "21.00", timestamp: "2020-02-25T02:55:20+00:00", status: "0"}
-      ],
-       tagId: "654"
-    }) {
-    string
+        { timestamp: "2021-02-02T02:00:00Z", value: "1.5", status: "1" }
+        { timestamp: "2021-02-02T03:00:00Z", value: "2.5", status: "1" }
+        { timestamp: "2021-02-02T04:00:00Z", value: "3.5", status: "1" }
+      ]
+      startTime: "2021-02-02"
+      endTime: "2021-02-03"
+    }
+  ) {
+    clientMutationId
+    json
   }
 }
 ```
+
+Replace ## with your tag or attribute ID.
+
+**<a name="create-tag">Creating New Tags**
+
+```
+mutation CreateTag_Mutation {
+  createTag(
+    input: {
+      tag: {
+        dataType: FLOAT
+        relativeName: "NewTagName"
+        displayName: "NewTagName"
+        partOfId: "##"
+      }
+    }
+  ) {
+    clientMutationId
+    tag {
+      id
+      displayName
+      systemType
+    }
+    asThing {
+      id
+      displayName
+      systemType
+    }
+  }
+}
+```
+
+Replace ## with the ID of the connector you want to attach the tag to.
 
 ## Other Operations
 
