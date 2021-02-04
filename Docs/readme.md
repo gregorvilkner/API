@@ -19,4 +19,5 @@ Once applied by an adopting platform (such as the SMIP, or other commercial offe
 * [Time Series Values](queries.md#query-timeseries)
 
 ### Mutations
-* [Inserting or updating time series samples](mutations.md)
+* [Inserting or updating time series samples](mutations.md#time-series)
+* [Creating a new tag](mutations.md#create-tag)
