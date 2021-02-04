@@ -2,6 +2,8 @@
 
 In GraphQL, the endpoint is always the same, but the query payload changes to indicate the response payload you wish to retrieve. For more information on accessing the GraphQL endpoint for your SMIP instance, see the page [SMIP GraphQL Endpoint](smip-graphql.md).
 
+## Example Queries
+
 **<a name="query-types">Querying Equipment Types (SM Profiles)**
 
 The following query payload returns a list of Equipment Types (also known as SM Profiles) in a given SMIP instance:
@@ -85,3 +87,7 @@ query HistoryQuery {
     }
 }
 ```
+
+## Other Operations
+
+With GraphQL, other types of operations can be performed with special queries called Mutations. Some  [Mutation examples can be found here](mutations.md).

@@ -17,3 +17,7 @@ Once GraphQL is activated on your SMIP instance, you'll also have a basic web UI
 `https://[yoursmip.cesmii.net]/graphiql`
 
 From this UI, you can discover the schema of the endpoint, build and make queries against it, and previous responses, all from your web browser. Any query that you can build and post from GraphiQL can be used in any other programming language or development tool that supports HTTP Post and JSON parsing. Some example queries can be found on the page [GraphQL Queries](queries.md)
+
+## Authorized Endpoint Access
+
+Now that you know where your endpoint is, you'll need an authorization token to send queries to it. Read about [acquiring a token here](jwt.md).
