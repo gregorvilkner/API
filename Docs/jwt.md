@@ -38,11 +38,13 @@ Note: If you can't find this menu item it can be created as a URL-type menu item
 
 The main benefit of the SMIP GraphQL API is that it can be accessed from outside of the web application. In this section we will use a desktop GraphiQL client to first obtain a JWT token and then make remote queries across the web. [GraphiQL](https://www.electronjs.org/apps/graphiql) can be downloaded as a light-weight electron app client for multiple operating systems, including Windows, Mac, and Linux. In this tutorial we will be using the [Altair GraphQL Client](https://www.electronjs.org/apps/altair).
 
+You can perform all of these actions programmatically, see the [Samples folder](https://github.com/cesmii/API/tree/main/Samples) for details in a variety of programming languages.
+
 ### Check if you have an Authenticator in Place
 
 Before we can obtain JWT tokens from the platform we need to configure a so called authenticator. Basically we need to register our client apps with the platform and assign them an appropriate GraphQL role. This is a common workflow to allow daemon style application interoperabilty - using application permissions rather then operating on behalf of a signed-in user.
 
-Let's register an authenticator named "git_smip_wiki" with the secret "git_password" and assign the read-only role "????_ro_group" via Developer -> Authenticators:
+Let's register an authenticator named "git_smip_wiki" with the secret "git_password" and assign the read-only role "YOURINSTANCE_ro_group" via Developer -> Authenticators:
 
 ![Authenticator](images/authenticator.png)
 
@@ -63,7 +65,7 @@ In this first step we use the authenticator name, the role, and a user name to o
 ![AuthRequest](images/authRequest.png)
 
 ~~~ cURL
-curl 'https://????.cesmii.thinkiq.net/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'Origin: altair://-' --data-binary '{"query":"mutation {\n  authenticationRequest(\n    input: {\n      authenticator: \"git_smip_wiki\"\n      role: \"ncsu_ro_group\"\n      userName: \"TestUser\"\n    }\n  ) {\n    clientMutationId\n    jwtRequest {\n      challenge\n      message\n    }\n  }\n}\n","variables":{}}' --compressed
+curl 'https://YOURINSTANCE.cesmii.thinkiq.net/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'Origin: altair://-' --data-binary '{"query":"mutation {\n  authenticationRequest(\n    input: {\n      authenticator: \"git_smip_wiki\"\n      role: \"ncsu_ro_group\"\n      userName: \"TestUser\"\n    }\n  ) {\n    clientMutationId\n    jwtRequest {\n      challenge\n      message\n    }\n  }\n}\n","variables":{}}' --compressed
 ~~~
 
 2) AuthenticationValidation
@@ -73,7 +75,7 @@ In the second step we use the callenge phrase signed with our secret (the challe
 ![AuthValidation](images/authValidation.png)
 
 ~~~ cURL
-curl 'https://????.cesmii.thinkiq.net/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'Origin: altair://-' --data-binary '{"query":"mutation {\n  authenticationValidation(\n    input: {\n      signedChallenge: \"<<challenge string here>>|git_password\"\n      authenticator: \"git_smip_wiki\"\n    }\n  ) {\n    jwtClaim\n  }\n}\n","variables":{}}' --compressed
+curl 'https://YOURINSTANCE.cesmii.thinkiq.net/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'Origin: altair://-' --data-binary '{"query":"mutation {\n  authenticationValidation(\n    input: {\n      signedChallenge: \"<<challenge string here>>|git_password\"\n      authenticator: \"git_smip_wiki\"\n    }\n  ) {\n    jwtClaim\n  }\n}\n","variables":{}}' --compressed
 ~~~
 
 3) SMIP GraphQL API request
@@ -83,9 +85,9 @@ Finally we can add the Authorization header with our Bearer JWT token to make a 
 ![SMIP GraphQL API request](images/smip_graphql.png)
 
 ~~~ cURL
-curl 'https://????.cesmii.thinkiq.net/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'Origin: altair://-' -H 'Authorization: Bearer eyJhbGc<< your JWT token here >>9xlC3gM' --data-binary '{"query":"{\n  organizations {\n    displayName\n    childPlaces {\n      displayName\n    }\n  }\n}\n","variables":{}}' --compressed
+curl 'https://YOURINSTANCE.cesmii.thinkiq.net/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'Origin: altair://-' -H 'Authorization: Bearer eyJhbGc<< your JWT token here >>9xlC3gM' --data-binary '{"query":"{\n  organizations {\n    displayName\n    childPlaces {\n      displayName\n    }\n  }\n}\n","variables":{}}' --compressed
 ~~~
 
 # Conclusion
 
-This concludes the overview of making SMIP GraphQL API calls using JWT tokens. We hope you find this information useful. Feel free to reach out to the folks at [CESMII](https://www.cesmii.org/) or [ThinkIQ](https://www.thinkiq.com/) with any questions you may have.
+This concludes the overview of making SMIP GraphQL API calls using JWT tokens. We hope you find this information useful. Contact your project sponsors for any additional questions you may have.
