@@ -23,34 +23,65 @@ query equipmentTypeQuery {
 
 The following query payload returns a list of Equipment instances in a given SMIP instance:
 
-`query EquipmentListQuery { equipments { nodes  { displayName, id }  }  }`
+```
+query EquipmentListQuery { 
+    equipments { 
+        nodes  { 
+            displayName, 
+            id 
+        }  
+    }  
+}
+```
 
 **<a name="query-locations">Querying Locations**
 
 The following query payload returns a list of Locations in a given SMIP instance:
 
-`query placeQuery {  places {    nodes {     displayName      partOf {        displayName      }    }  }}`
+```
+query placeQuery {  
+    places {    
+        nodes {     
+            displayName      
+            partOf {        
+                displayName      
+            }    
+        }  
+    }
+}
+```
 
 **<a name="query-attributes">Querying Attributes**
 
 The following query payload returns a list of Attributes in a given SMIP instance:
 
-`query AttributeQuery { attributes { nodes  { displayName, id, partOfId, tagId }  }  }`
+```
+query AttributeQuery { 
+    attributes { 
+        nodes  { 
+            displayName, 
+            id, 
+            partOfId, 
+            tagId
+        }  
+    }  
+}
+```
 
 **<a name="query-timeseries">Querying Time Series Values**
 
 The following query payload returns a list of Time Series sample values for a given Instance Attribute Tag within the specified time range
 
 ```
-    query HistoryQuery {
-    getRawHistoryDataWithSampling(maxSamples: 10, ids: ["1690"], startTime: "2020-02-21 00:00:00+00", endTime: "2020-02-21 00:12:00+00") {
+query HistoryQuery {
+    getRawHistoryDataWithSampling(maxSamples: 10, ids: ["1690"], startTime: "2021-02-21 00:00:00+00", endTime: "2020-02-21 00:12:00+00") {
         nodes {
             id
             status
             stringvalue
             dataType
             ts
-            }
         }
     }
+}
 ```

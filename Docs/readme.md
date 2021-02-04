@@ -5,7 +5,7 @@ Once applied by an adopting platform (such as the SMIP, or other commercial offe
 
 ## GraphQL API
 * [Intro to GraphQL](intro.md)
-* [GraphQL applied to Smart Manufacturing](graphql-and-manufacturing)
+* [GraphQL applied to Smart Manufacturing](graphql-and-manufacturing.md)
 * [SMIP GraphQL Endpoint](smip-graphql.md)
 
 ### Security and Authentication
